@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS3-->
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+    <!--Bootstrap-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!--Main CSS-->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Google Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Streaming App by Krishna Diamesso</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #mainBody {
+            background-color: #FF9800;
+        }
+
+        .stream {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .search {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .appMain {
+            width: 70%;
+            height: 60%;
+            margin: 100px auto;
+            background-color: white;
+        }
+
+        .header {
+            background-color: #F44336;
+        }
+
+        .subText {
+            color: #757575;
+        }
+
+        .streamCard {
+            background: #FFA726;
+        }
+    </style>
+
+</head>
+
+<body id="mainBody" ng-app="Application" ng-controller="myCtrl" ng-cloak>
+    <div class="w3-card-4 appMain">
+        <div class="w3-center w3-padding-16 header w3-text-white">
+            <h1>Stream TV</h1>
+        </div>
+        <div class="w3-padding-8">
+            <input type="text" placeholder="Search Tv Stream" class="search w3-input">
+        </div>
+        <hr>
+        <div class="stream w3-white">
+            <div class="w3-card-2 w3-padding-8 w3-container w3-margin-top w3-padding-top streamCard w3-row-padding">
+                <div class="w3-col s2 m1 l1">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+                <div class="w3-col s8 m10 l10">
+                    <p>89.5 Music FM</p>
+                </div>
+                <div class="w3-col s2 m1 l1">
+                    <span class="glyphicon glyphicon-play"></span>
+                </div>
+            </div>
+
+            <div class="w3-card-2 w3-padding-8 w3-container w3-margin-top streamCard">
+                <p>{{firstName + " " + lastName}}<br><i class="subText">Online</i></p>
+            </div>
+        </div>
+        <hr>
+
+        <div class="w3-row w3-container">
+            <div class="w3-col s4 m4 l4 w3-center">
+                <p><i class="material-icons">&#xE3E7;</i><br><span>Online</span></p>
+
+            </div>
+            <div class="w3-col s4 m4 l4 w3-center">
+                <p><i class="material-icons">&#xE877;</i><br><span>All</span></p>
+            </div>
+            <div class="w3-col s4 m4 l4 w3-center">
+                <p><i class="material-icons">&#xE3E6;</i><br><span>Offline</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JS File -->
+    <script src="js/app.js"></script>
+    
+</body>
+
+</html>
