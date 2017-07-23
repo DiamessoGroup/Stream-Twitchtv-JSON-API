@@ -1,0 +1,13 @@
+{
+  "name": "streaming-app",
+  "version": "1.0.0",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "node js/app.js"
+  },
+  "keywords": [],
+  "author": "Krishna Diamesso <krishnadiamesso@gmail.com>",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {}
+}

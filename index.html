@@ -53,7 +53,7 @@
         .appMain {
             width: 70%;
             height: 60%;
-            margin: 100px auto;
+            margin: 50px auto;
             background-color: white;
         }
 
@@ -68,6 +68,31 @@
         .streamCard {
             background: #FFA726;
         }
+
+        a {
+            text-decoration: none;
+            color: #212121;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        #singleCard {
+            padding-top: 16px;
+        }
+
+        .capitalize {
+            text-transform: capitalize;
+        }
+
+        .iconCard {
+            font-size: 15px;
+        }
+
+        #footer {
+            padding-top: 20px;
+        }
     </style>
 
 </head>
@@ -78,29 +103,45 @@
             <h1>Stream TV</h1>
         </div>
         <div class="w3-padding-8">
-            <input type="text" placeholder="Search Tv Stream" class="search w3-input">
+            <input type="text" placeholder="Search Tv Stream" class="search w3-input" ng-model="searchSort">
         </div>
         <hr>
         <div class="stream w3-white">
-            <div class="w3-card-2 w3-padding-8 w3-container w3-margin-top w3-padding-top streamCard w3-row-padding">
+            <div class="w3-card-2 w3-container w3-margin-top streamCard w3-row-padding" id="singleCard" ng-repeat="User in Users | filter : searchSort | orderBy: 'streamName'">
                 <div class="w3-col s2 m1 l1">
-                    <span class="glyphicon glyphicon-user"></span>
+                    <!-- <span class="glyphicon glyphicon-user"></span> -->
+                    <img ng-src="{{User.streamLogo}}" class="w3-circle" alt="Logo Stream" style="width:80%">
                 </div>
                 <div class="w3-col s8 m10 l10">
-                    <p>89.5 Music FM</p>
+                    <h5 class="capitalize">{{User.streamStatus | lowercase}}</h5>
                 </div>
                 <div class="w3-col s2 m1 l1">
                     <span class="glyphicon glyphicon-play"></span>
                 </div>
-            </div>
-
-            <div class="w3-card-2 w3-padding-8 w3-container w3-margin-top streamCard">
-                <p>{{firstName + " " + lastName}}<br><i class="subText">Online</i></p>
+                <div class="w3-row">
+                    <div class="w3-col s2 m2 l2">
+                        <a href="{{User.streamUrl}}" target="_blank">
+                            <p><i class="fa fa-address-book iconCard"></i> : {{User.streamName}}</p>
+                        </a>
+                    </div>
+                    <div class="w3-col s2 m2 l2">
+                        <p><i class="fa fa-globe iconCard"></i> : {{User.streamLanguage}}</p>
+                    </div>
+                    <div class="w3-col s2 m2 l2">
+                        <p><i class="fa fa-user iconCard"></i> : {{User.streamViewers}}</p>
+                    </div>
+                    <div class="w3-col s2 m2 l2">
+                        <p><i class="fa fa-eye iconCard"></i> : {{User.streamViews}}</p>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <p><i class="fa fa-gamepad iconCard"></i> : {{User.streamGame}}</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <hr>
+        <hr style="border-color:#F44336">
 
-        <div class="w3-row w3-container">
+        <div class="w3-row w3-container" id="footer">
             <div class="w3-col s4 m4 l4 w3-center">
                 <p><i class="material-icons">&#xE3E7;</i><br><span>Online</span></p>
 
@@ -116,7 +157,6 @@
 
     <!-- Main JS File -->
     <script src="js/app.js"></script>
-    
 </body>
 
 </html>
