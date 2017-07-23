@@ -51,9 +51,9 @@
         }
 
         .appMain {
-            width: 70%;
-            height: 60%;
-            margin: 50px auto;
+            width: 80%;
+            height: 80%;
+            margin: 25px auto;
             background-color: white;
         }
 
@@ -80,6 +80,7 @@
 
         #singleCard {
             padding-top: 16px;
+            padding-bottom: 16px;
         }
 
         .capitalize {
@@ -91,7 +92,37 @@
         }
 
         #footer {
-            padding-top: 20px;
+            padding-top: 15px;
+        }
+
+        .scrollDiv {
+            height: 325px;
+            overflow-y: scroll;
+        }
+
+        .scrollDiv::-webkit-scrollbar {
+            display: none;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+            width: 40%;
+            padding-bottom: 5px;
+        }
+
+        .cursorIcon {
+            font-size: 30px;
+            cursor: pointer;
+            cursor: hand;
+        }
+
+        .cursorIcon:hover {
+            color: #F44336;
+        }
+
+        .selected {
+            color: #F44336;
         }
     </style>
 
@@ -99,64 +130,88 @@
 
 <body id="mainBody" ng-app="Application" ng-controller="myCtrl" ng-cloak>
     <div class="w3-card-4 appMain">
-        <div class="w3-center w3-padding-16 header w3-text-white">
+        <!-- Header -->
+        <div class="w3-center w3-padding-8 header w3-text-white">
             <h1>Stream TV</h1>
         </div>
+        <!-- End Header -->
+
+        <!-- Search Box -->
         <div class="w3-padding-8">
-            <input type="text" placeholder="Search Tv Stream" class="search w3-input" ng-model="searchSort">
+            <input type="text" placeholder="Search" class="search w3-input" ng-model="searchSort">
         </div>
+        <!-- End Search Box -->
         <hr>
-        <div class="stream w3-white">
-            <div class="w3-card-2 w3-container w3-margin-top streamCard w3-row-padding" id="singleCard" ng-repeat="User in Users | filter : searchSort | orderBy: 'streamName'">
-                <div class="w3-col s2 m1 l1">
-                    <!-- <span class="glyphicon glyphicon-user"></span> -->
-                    <img ng-src="{{User.streamLogo}}" class="w3-circle" alt="Logo Stream" style="width:80%">
+
+        <!-- Card Stream -->
+        <div class="stream w3-white scrollDiv">
+            <div class="w3-card-2 w3-container w3-margin-top streamCard w3-row-padding" id="singleCard" ng-repeat="User in Users | filter : searchSort | orderBy: 'streamName' | filter: filters">
+                <div class="w3-col s12 m2 l2">
+                    <img ng-src="{{User.streamLogo}}" class="w3-circle" alt="Logo Stream">
                 </div>
-                <div class="w3-col s8 m10 l10">
-                    <h5 class="capitalize">{{User.streamStatus | lowercase}}</h5>
-                </div>
-                <div class="w3-col s2 m1 l1">
-                    <span class="glyphicon glyphicon-play"></span>
-                </div>
-                <div class="w3-row">
-                    <div class="w3-col s2 m2 l2">
-                        <a href="{{User.streamUrl}}" target="_blank">
-                            <p><i class="fa fa-address-book iconCard"></i> : {{User.streamName}}</p>
-                        </a>
+                <div class="w3-col s12 m10 l10 w3-row">
+                    <div class="w3-col s12 m10 l10">
+                        <p class="capitalize"><strong>{{User.streamStatus | lowercase}}</strong></p>
                     </div>
-                    <div class="w3-col s2 m2 l2">
-                        <p><i class="fa fa-globe iconCard"></i> : {{User.streamLanguage}}</p>
+                    <div class="w3-col s12 m1 l1">
+                        <p><i>{{User.streamOnOff}}</i></p>
                     </div>
-                    <div class="w3-col s2 m2 l2">
-                        <p><i class="fa fa-user iconCard"></i> : {{User.streamViewers}}</p>
-                    </div>
-                    <div class="w3-col s2 m2 l2">
-                        <p><i class="fa fa-eye iconCard"></i> : {{User.streamViews}}</p>
-                    </div>
-                    <div class="w3-col s4 m4 l4">
-                        <p><i class="fa fa-gamepad iconCard"></i> : {{User.streamGame}}</p>
+                    <div class="w3-row">
+                        <div class="w3-col s12 m2 l2">
+                            <a href="{{User.streamUrl}}" target="_blank">
+                                <p><i class="fa fa-address-book iconCard"></i> : {{User.streamName}}</p>
+                            </a>
+                        </div>
+                        <div class="w3-col s12 m2 l2">
+                            <p><i class="fa fa-globe iconCard"></i> : {{User.streamLanguage}}</p>
+                        </div>
+                        <div class="w3-col s12 m2 l2">
+                            <p><i class="fa fa-user iconCard"></i> : {{User.streamViewers}}</p>
+                        </div>
+                        <div class="w3-col s12 m2 l2">
+                            <p><i class="fa fa-eye iconCard"></i> : {{User.streamViews}}</p>
+                        </div>
+                        <div class="w3-col s12 m4 l4">
+                            <p><i class="fa fa-gamepad iconCard"></i> : {{User.streamGame}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- End Card Stream -->
+
         <hr style="border-color:#F44336">
 
+        <!-- Footer -->
         <div class="w3-row w3-container" id="footer">
             <div class="w3-col s4 m4 l4 w3-center">
-                <p><i class="material-icons">&#xE3E7;</i><br><span>Online</span></p>
+                <p><i class="material-icons cursorIcon cursonIconOnOff cursorIOnOff" ng-click="filters.streamOnOff = 'Online'">&#xE3E7;</i><br><span>Online</span></p>
 
             </div>
             <div class="w3-col s4 m4 l4 w3-center">
-                <p><i class="material-icons">&#xE877;</i><br><span>All</span></p>
+                <p><i class="material-icons cursorIcon cursorIconAll" ng-click="filters.streamOnOff = ''">&#xE877;</i><br><span>All</span></p>
             </div>
             <div class="w3-col s4 m4 l4 w3-center">
-                <p><i class="material-icons">&#xE3E6;</i><br><span>Offline</span></p>
+                <p><i class="material-icons cursorIcon cursonIconOnOff cursorIOnOff" ng-click="filters.streamOnOff = 'Offline'">&#xE3E6;</i><br><span>Offline</span></p>
             </div>
         </div>
+        <!-- End Footer -->
+
     </div>
 
     <!-- Main JS File -->
     <script src="js/app.js"></script>
+
+    <script>
+        $('.cursorIOnOff').on('click', function () {
+            $('.cursorIOnOff').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+         $('.cursorIconAll').on('click', function () {
+            $('.cursorIOnOff').removeClass('selected');
+        }); 
+    </script>
 </body>
 
 </html>

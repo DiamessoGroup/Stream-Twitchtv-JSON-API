@@ -3,21 +3,13 @@
 var app = angular.module('Application', []);
 
 app.controller('myCtrl', function ($scope, $http) {
-    $scope.streamUsers = ["cayinator", "ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404", "peroniogh", "nl_kripp"];
+    $scope.streamUsers = ["cayinator", "ESL_SC2", "OgamingSC2", "peroniogh", "nl_kripp"];
+
+    $scope.streamUsersOff = ["cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin"];
+
+    $scope.filters = {};
 
     $scope.clientId = "88gfww5vpzqtimas9jhiz8gkt1zkr8";
-
-    /* $http.get(`https://api.twitch.tv/kraken/streams/${$scope.streamUsers[1]}?client_id=${$scope.clientId}`)
-        .then(function (response) {
-            $scope.streamName = response.data.stream.channel.display_name;
-            $scope.streamUrl = response.data.stream.channel.url;
-            $scope.streamViewers = response.data.stream.viewers;
-            $scope.streamViews = response.data.stream.channel.views;
-            $scope.streamFollowers = response.data.stream.channel.followers;
-            $scope.streamLanguage = response.data.stream.channel.language;
-            $scope.streamAddInfo = response.data.stream.game;
-            $scope.streamLogo = response.data.stream.channel.logo;
-        }); */
 
     for (var i = 0; i < $scope.streamUsers.length; i++) {
         $scope.Users = [];
@@ -33,16 +25,33 @@ app.controller('myCtrl', function ($scope, $http) {
                     streamLanguage: response.data.stream.channel.language,
                     streamGame: response.data.stream.game,
                     streamLogo: response.data.stream.channel.logo,
-                    streamStatus: response.data.stream.channel.status
+                    streamStatus: response.data.stream.channel.status,
+                    streamOnOff: "Online"
                 }
 
-                if ($scope.User.stream !== null) {
-                    $scope.Users.push($scope.User);
-                } else {
-                    $scope.Users.push($scope.streamUsers[i]);
+                $scope.Users.push($scope.User);
+                console.log($scope.User);
+            });
+
+        $http.get(`https://wind-bow.glitch.me/twitch-api/users/${$scope.streamUsersOff[i]}`)
+            .then(function (response) {
+                $scope.User = {
+                    stream: "N/A",
+                    streamName: response.data.display_name,
+                    streamUrl: "N/A",
+                    streamViewers: "N/A",
+                    streamViews: "N/A",
+                    streamFollowers: "N/A",
+                    streamLanguage: "N/A",
+                    streamGame: "N/A",
+                    streamLogo: response.data.logo,
+                    streamOnOff: "Offline",
+                    streamStatus: response.data.display_name
                 }
+
+                $scope.Users.push($scope.User);
+                console.log($scope.User);
             });
     }
     console.log($scope.Users);
-
 });
