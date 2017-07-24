@@ -13,7 +13,7 @@ app.controller('myCtrl', function ($scope, $http) {
 
     for (var i = 0; i < $scope.streamUsers.length; i++) {
         $scope.Users = [];
-        $http.get(`https://api.twitch.tv/kraken/channels/${$scope.streamUsers[i]}?client_id=${$scope.clientId}`)
+        $http.get(`https://api.twitch.tv/kraken/streams/${$scope.streamUsers[i]}?client_id=${$scope.clientId}`)
             .then(function Success(response) {
                     if (response.data.stream !== null || undefined) {
                         $scope.User = {
