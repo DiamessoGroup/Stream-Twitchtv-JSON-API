@@ -1,0 +1,92 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#mainBody {
+    background-color: #FF9800;
+}
+
+.stream {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.search {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.appMain {
+    width: 80%;
+    height: 80%;
+    margin: 25px auto;
+    background-color: white;
+}
+
+.header {
+    background-color: #F44336;
+}
+
+.subText {
+    color: #757575;
+}
+
+.streamCard {
+    background: #FFA726;
+}
+
+a {
+    text-decoration: none;
+    color: #212121;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#singleCard {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.iconCard {
+    font-size: 15px;
+}
+
+#footer {
+    padding-top: 15px;
+}
+
+.scrollDiv {
+    height: 325px;
+    overflow-y: scroll;
+}
+
+.scrollDiv::-webkit-scrollbar {
+    display: none;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 40%;
+    padding-bottom: 5px;
+}
+
+.cursorIcon {
+    font-size: 30px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.cursorIcon:hover {
+    color: #F44336;
+}
+
+.selected {
+    color: #F44336;
+}
