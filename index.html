@@ -160,9 +160,7 @@
                     </div>
                     <div class="w3-row">
                         <div class="w3-col s12 m2 l2">
-                            <a href="{{User.streamUrl}}" target="_blank">
-                                <p><i class="fa fa-address-book iconCard"></i> : {{User.streamName}}</p>
-                            </a>
+                            <p><i class="fa fa-address-book iconCard"></i> : <a href="{{User.streamUrl}}" target="_blank" ng-if="User.streamUrl != false">{{User.streamName}}</a></p>
                         </div>
                         <div class="w3-col s12 m2 l2">
                             <p><i class="fa fa-globe iconCard"></i> : {{User.streamLanguage}}</p>

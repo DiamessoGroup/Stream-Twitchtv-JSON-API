@@ -9,77 +9,66 @@ app.controller('myCtrl', function ($scope, $http) {
 
     $scope.filters = {};
 
-    $scope.clientId = "88gfww5vpzqtimas9jhiz8gkt1zkr8";
 
-    for (var i = 0; i < $scope.streamUsers.length; i++) {
-        $scope.Users = [];
-        $http.get(`https://api.twitch.tv/kraken/streams/${$scope.streamUsers[i]}?client_id=${$scope.clientId}`)
-            .then(function Success(response) {
-                    if (response.data.stream !== null || undefined) {
+    $scope.Users = [];
+    $http.get("./json/data.json")
+        .then(function Success(response) {
+                for (var i = 0; i < response.data.length; i += 1) {
+                    if (response.data[i].stream !== null && response.data[i].stream !== undefined) {
                         $scope.User = {
-                            streamName: response.data.display_name,
-                            streamUrl: response.data.url,
-                            streamViewers: response.data.viewers,
-                            streamViews: response.data.views,
-                            streamFollowers: response.data.followers,
-                            streamLanguage: response.data.language,
-                            streamGame: response.data.game,
-                            streamLogo: response.data.logo,
-                            streamStatus: response.data.status,
+                            streamName: response.data[i].stream.display_name,
+                            streamUrl: response.data[i].stream.url,
+                            streamViewers: response.data[i].stream.viewers,
+                            streamViews: response.data[i].stream.views,
+                            streamFollowers: response.data[i].stream.followers,
+                            streamLanguage: response.data[i].stream.language,
+                            streamGame: response.data[i].stream.game,
+                            streamLogo: response.data[i].stream.logo,
+                            streamStatus: response.data[i].stream.status,
                             streamOnOff: "Online"
                         };
                         $scope.Users.push($scope.User);
+                        //console.log($scope.User);
                     }
-                },
-                function Error(response ) {
-                    $scope.statusText = response.statusText;
-                    $scope.statusCode = response.status;
-                    $scope.User = {
-                        streamStatus: response.data.message,
-                        //streamName: "$scope.streamUsers[i]",
-                        // streamUrl: ,
-                        // streamViewers: "N/A",
-                        // streamViews: "N/A",
-                        // streamFollowers: "N/A",
-                        // streamLanguage: "N/A",
-                        // streamGame: "N/A",
-                        // streamLogo: "N/A",
-                        // streamOnOff: "N/A",
+
+                    if (response.data[i].stream === null) {
+                        $scope.User = {
+                            streamName: response.data[i].display_name,
+                            streamStatus: response.data[i].display_name,
+                            streamUrl: false,
+                            streamViewers: "N/A",
+                            streamViews: "N/A",
+                            streamFollowers: "N/A",
+                            streamLanguage: "N/A",
+                            streamGame: "N/A",
+                            streamLogo: "./../img/generic-placeholder.jpg",
+                            streamOnOff: "Offline",
+                        }
+                        $scope.Users.push($scope.User);
+                        //console.log($scope.User);
                     }
-                    // console.log($scope.statusText);
-                    // console.log($scope.statusCode);
-                    // console.log(3);
-                    $scope.Users.push($scope.User);
-                    //console.log($scope.User);
-                });
 
-        // $http.get(`https://wind-bow.glitch.me/twitch-api/channels/${$scope.streamUsersOff[i]}`)
-        //     .then(function (response) {
-        //             if (response.data.display_name !== '') {
-        //                 $scope.User = {
-        //                     streamName: response.data.display_name,
-        //                     streamUrl: response.data.url,
-        //                     streamViewers: "N/A",
-        //                     streamViews: "N/A",
-        //                     streamFollowers: "N/A",
-        //                     streamLanguage: "N/A",
-        //                     streamGame: "N/A",
-        //                     streamLogo: response.data.logo,
-        //                     streamOnOff: "Offline",
-        //                     streamStatus: response.data.display_name
-        //                 }
-
-        //                 $scope.Users.push($scope.User);
-        //                 console.log($scope.User);
-        //             }
-        //         },
-        //         function Error(response) {
-        //             $scope.statusText = response.statusText;
-        //             $scope.statusCode = response.status;
-        //              console.log($scope.statusText);
-        //              console.log($scope.statusCode);
-        //              console.log(4);
-        //         });
-    }
+                    if (response.data[i].stream === undefined) {
+                        $scope.User = {
+                            streamName: response.data[i].display_name,
+                            streamStatus: response.data[i].message,
+                            streamUrl: false,
+                            streamOnOff: "",
+                            streamLogo: "./../img/generic-placeholder.jpg"
+                        }
+                        $scope.Users.push($scope.User);
+                        //console.log($scope.User);
+                    }
+                }
+                //console.log(response.data);
+            },
+            function Error(response) {
+                $scope.statusText = response.statusText;
+                $scope.statusCode = response.status;
+                console.log($scope.statusText);
+                console.log($scope.statusCode);
+                console.log(3);
+                //console.log($scope.User);
+            });
     //console.log($scope.Users);
 });

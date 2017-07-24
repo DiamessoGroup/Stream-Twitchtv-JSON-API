@@ -1,5 +1,4 @@
-[
-  {
+[{
     "stream": {
       "mature": false,
       "status": "Greg working on Electron-Vue boilerplate w/ Akira #programming #vuejs #electron",
@@ -38,16 +37,14 @@
       "self": "https://api.twitch.tv/kraken/streams/freecodecamp",
       "channel": "https://api.twitch.tv/kraken/channels/freecodecamp"
     }
-  },
-  {
+  }, {
     "stream": null,
     "display_name": "OgamingSC2",
     "_links": {
       "self": "https://api.twitch.tv/kraken/streams/ogamingsc2",
       "channel": "https://api.twitch.tv/kraken/channels/ogamingsc2"
     }
-  },
-  {
+  }, {
     "stream": {
       "mature": false,
       "status": "RERUN: StarCraft 2 - Kane vs. HuK (ZvP) - WCS Season 3 Challenger AM - Match 4",
@@ -86,18 +83,85 @@
       "self": "https://api.twitch.tv/kraken/streams/esl_sc2",
       "channel": "https://api.twitch.tv/kraken/channels/esl_sc2"
     }
-  },
-  {
+  }, {
     "stream": null,
     "display_name": "noobs2ninjas",
     "_links": {
       "self": "https://api.twitch.tv/kraken/streams/esl_sc2",
       "channel": "https://api.twitch.tv/kraken/channels/esl_sc2"
     }
+  }, {
+    "error": "Not Found",
+    "status": 404,
+    "message": "Channel 'not-a-valid-account' does not exist"
+  },
+  {
+    "stream": {
+      "_id": 25830531568,
+      "game": "StarCraft II",
+      "viewers": 192,
+      "video_height": 720,
+      "average_fps": 60,
+      "delay": 0,
+      "created_at": "2017-07-23T22:23:33Z",
+      "is_playlist": false,
+      "stream_type": "watch_party",
+      "small": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ogamingsc2-80x45.jpg",
+      "medium": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ogamingsc2-320x180.jpg",
+      "large": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ogamingsc2-640x360.jpg",
+      "template": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ogamingsc2-{width}x{height}.jpg",
+      "mature": false,
+      "partner": true,
+      "status": "HSC XV - GRAND FINAL - Zest vs ByuN",
+      "broadcaster_language": "fr",
+      "display_name": "OgamingSC2",
+      "language": "fr",
+      "name": "ogamingsc2",
+      "updated_at": "2017-07-24T05:04:24Z",
+      "logo": "https://static-cdn.jtvnw.net/jtv_user_pictures/ogamingsc2-profile_image-9021dccf9399929e-300x300.jpeg",
+      "banner": null,
+      "video_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/ogamingsc2-channel_offline_image-1570cf4930177aa3-1920x1080.jpeg",
+      "background": null,
+      "profile_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/ogamingsc2-profile_banner-d418aed2c0ef7d35-480.jpeg",
+      "profile_banner_background_color": "",
+      "url": "https://www.twitch.tv/ogamingsc2",
+      "views": 27082264,
+      "followers": 53010
+    }
+  },
+  {
+    "stream": {
+      "_id": 25833024368,
+      "game": "Hearthstone",
+      "viewers": 0,
+      "video_height": 1080,
+      "average_fps": 60,
+      "delay": 0,
+      "created_at": "2017-07-24T05:29:39Z",
+      "is_playlist": false,
+      "stream_type": "live",
+      "mature": false,
+      "partner": true,
+      "status": "TSM Kripp ARENA & Ranked Stuffs !twitchprime (âœ¿â˜¯â€¿â˜¯âœ¿)(âœ¿â˜¯â€¿â˜¯âœ¿)",
+      "broadcaster_language": "en",
+      "display_name": "nl_Kripp",
+      "language": "en",
+      "name": "nl_kripp",
+      "updated_at": "2017-07-24T05:04:30Z",
+      "logo": "https://static-cdn.jtvnw.net/jtv_user_pictures/nl_kripp-profile_image-294722d79072f28f-300x300.png",
+      "banner": null,
+      "video_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/nl_kripp-channel_offline_image-b4f28953b2190755-1920x1080.png",
+      "background": null,
+      "profile_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/nl_kripp-profile_banner-2781fb5fc1393c89-480.png",
+      "profile_banner_background_color": "",
+      "url": "https://www.twitch.tv/nl_kripp",
+      "views": 171402446,
+      "followers": 1024455
+    }
   },
   {
     "error": "Not Found",
     "status": 404,
-    "message": "Channel 'not-a-valid-account' does not exist"
+    "message": "User 'brunofin' was not found"
   }
 ]
